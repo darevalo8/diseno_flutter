@@ -7,57 +7,70 @@ class BasicoPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Center(
-        child: Column(
-          children: <Widget>[
-            _crearImagen(),
-            _crearBanner(),
-            _crearAcciones(),
-            _crearTexto()
-          ],
+        child: SingleChildScrollView(
+          child: Column(
+            children: <Widget>[
+              _crearImagen(),
+              _crearBanner(),
+              _crearAcciones(),
+              _crearTexto(),
+              _crearTexto(),
+              _crearTexto(),
+              _crearTexto(),
+              _crearTexto(),
+            ],
+          ),
         ),
       ),
     );
   }
 
   Widget _crearImagen() {
-    return Image(
-        image: NetworkImage(
-            'https://images.unsplash.com/photo-1506744038136-46273834b3fb?ixlib=rb-1.2.1&w=1000&q=80'));
+    return Container(
+      width: double.infinity,
+      child: Image(
+        height: 200.0,
+        fit: BoxFit.cover,
+          image: NetworkImage(
+              'https://images.unsplash.com/photo-1506744038136-46273834b3fb?ixlib=rb-1.2.1&w=1000&q=80')),
+    );
   }
 
   Widget _crearBanner() {
-    return Container(
-      padding: EdgeInsets.symmetric(horizontal: 30.0, vertical: 20.0),
-      child: Row(
-        children: <Widget>[
-          Expanded(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: <Widget>[
-                Text(
-                  'Paisaje invierno',
-                  style: estiloTitulo,
-                ),
-                Text(
-                  'Lago de no se donde',
-                  style: estiloSubTitulo,
-                )
-              ],
+    return SafeArea(
+      child: Container(
+        padding: EdgeInsets.symmetric(horizontal: 30.0, vertical: 20.0),
+        child: Row(
+          children: <Widget>[
+            Expanded(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: <Widget>[
+                  Text(
+                    'Paisaje invierno',
+                    style: estiloTitulo,
+                  ),
+                  Text(
+                    'Lago de no se donde',
+                    style: estiloSubTitulo,
+                  )
+                ],
+              ),
             ),
-          ),
-          Icon(
-            Icons.star,
-            color: Colors.red,
-            size: 30.0,
-          ),
-          SizedBox(
-            height: 7.0,
-          ),
-          Text(
-            '41',
-            style: TextStyle(fontSize: 20.0),
-          )
-        ],
+            Icon(
+              Icons.star,
+              color: Colors.red,
+              size: 30.0,
+            ),
+            SizedBox(
+              height: 7.0,
+            ),
+            Text(
+              '41',
+              style: TextStyle(fontSize: 20.0),
+            )
+          ],
+        ),
       ),
     );
   }
@@ -93,11 +106,13 @@ class BasicoPage extends StatelessWidget {
   }
 
   Widget _crearTexto() {
-    return Container(
-      padding: EdgeInsets.symmetric(horizontal: 40.0, vertical: 20.0),
-      child: Text(
-        "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
-        textAlign: TextAlign.justify,
+    return SafeArea(
+      child: Container(
+        padding: EdgeInsets.symmetric(horizontal: 40.0),
+        child: Text(
+          "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+          textAlign: TextAlign.justify,
+        ),
       ),
     );
   }
